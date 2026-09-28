@@ -3,259 +3,213 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SPECTRA is an order flow platform built around price, volume and market structure.">
-  <title>SPECTRA OF | The Order Flow Platform</title>
+  <meta name="description" content="SPECTRA is an order flow platform built from the ground up. Follow the development and join the waitlist for early access.">
+  <title>SPECTRA OF | From Traders, For Traders.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="assets/spectra-logo.png">
-  <meta property="og:title" content="SPECTRA OF | The Order Flow Platform">
-  <meta property="og:description" content="The order flow platform I always wanted. Built from the ground up.">
-  <meta property="og:image" content="assets/spectra-wordmark.png">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="site-shell">
+  <div class="site">
     <header class="nav" id="nav">
       <a class="brand" href="#top" aria-label="SPECTRA home">
-        <img src="assets/spectra-logo.png" alt="" class="brand-mark">
+        <img src="assets/spectra-logo.png" alt="" class="brand-logo">
         <span>SPECTRA</span>
       </a>
 
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#platform">Platform</a>
-        <a href="#layers">Market Layers</a>
-        <a href="#workspace">Workspace</a>
-        <a href="#roadmap">Roadmap</a>
+      <nav class="nav-actions" aria-label="Primary">
+        <a href="#qa">Q&amp;A</a>
+        <a class="nav-waitlist" href="#waitlist">JOIN THE WAITLIST <span>↗</span></a>
       </nav>
 
-      <a class="nav-cta" href="#early-access">Join Early Access <span>↗</span></a>
-      <button class="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </header>
 
     <main id="top">
-      <section class="hero section-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">FROM TRADERS, FOR TRADERS</div>
-          <h1>The order flow platform<br><span>I always wanted.</span></h1>
-          <p class="hero-lead">
-            Built from the ground up around price, volume and market structure.
-            One environment for the information that matters.
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="status reveal">
+            <span class="status-dot"></span>
+            <span>CURRENTLY IN DEVELOPMENT</span>
+          </div>
+
+          <img src="assets/spectra-logo.png" alt="SPECTRA" class="hero-logo reveal delay-1">
+
+          <div class="hero-wordmark reveal delay-2">SPECTRA</div>
+
+          <div class="hero-payoff reveal delay-3">FROM TRADERS, FOR TRADERS.</div>
+
+          <p class="hero-description reveal delay-4">
+            An order flow platform, built from the ground up.
           </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#early-access">Join Early Access <span>↗</span></a>
-            <a class="button button-secondary" href="#platform">Explore SPECTRA <span>↓</span></a>
-          </div>
-          <div class="hero-meta">
-            <span>CHARTING</span><i></i><span>VOLUME</span><i></i><span>ORDER FLOW</span><i></i><span>ANALYTICS</span>
+
+          <a class="hero-cta reveal delay-4" href="#waitlist">
+            <span>JOIN THE WAITLIST</span>
+            <span class="cta-arrow">↗</span>
+          </a>
+
+          <div class="hero-scroll reveal delay-4" aria-hidden="true">
+            <span></span>
+            <span>SCROLL TO EXPLORE</span>
           </div>
         </div>
+      </section>
 
-        <div class="hero-product reveal delay-1" aria-label="SPECTRA platform preview">
-          <div class="window">
-            <div class="window-top">
-              <div class="window-brand"><img src="assets/spectra-logo.png" alt=""> SPECTRA</div>
-              <div class="window-tabs"><span class="active">CHART</span><span>DEPTH</span><span>FOOTPRINT</span><span>ANALYTICS</span></div>
-              <div class="window-status"><span class="status-dot"></span> LIVE</div>
+      <section class="qa-section" id="qa">
+        <div class="section-container">
+          <div class="section-header reveal">
+            <div class="section-index">01</div>
+            <div>
+              <div class="eyebrow">Q&amp;A</div>
+              <h2>About SPECTRA.</h2>
             </div>
-            <div class="terminal">
-              <aside class="terminal-rail">
-                <span class="rail-active">⌁</span><span>＋</span><span>／</span><span>◌</span><span>×</span>
-              </aside>
-              <div class="terminal-main">
-                <div class="market-strip">
-                  <span>NQ</span><strong>24,872.50</strong><span class="up">+0.42%</span><span class="mono">5m</span>
-                </div>
-                <div class="chart-zone">
-                  <svg viewBox="0 0 900 350" preserveAspectRatio="none" class="chart-svg" aria-hidden="true">
-                    <defs>
-                      <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0" stop-color="#1597ff" stop-opacity=".16"/>
-                        <stop offset="1" stop-color="#1597ff" stop-opacity="0"/>
-                      </linearGradient>
-                    </defs>
-                    <g class="grid-lines">
-                      <path d="M0 55H900 M0 110H900 M0 165H900 M0 220H900 M0 275H900 M0 330H900"/>
-                      <path d="M90 0V350 M180 0V350 M270 0V350 M360 0V350 M450 0V350 M540 0V350 M630 0V350 M720 0V350 M810 0V350"/>
-                    </g>
-                    <path class="area" d="M0 255 L45 240 L90 255 L135 220 L180 235 L225 185 L270 205 L315 160 L360 180 L405 130 L450 145 L495 108 L540 135 L585 92 L630 115 L675 72 L720 92 L765 58 L810 76 L855 40 L900 52 L900 350 L0 350 Z"/>
-                    <path class="price" d="M0 255 L45 240 L90 255 L135 220 L180 235 L225 185 L270 205 L315 160 L360 180 L405 130 L450 145 L495 108 L540 135 L585 92 L630 115 L675 72 L720 92 L765 58 L810 76 L855 40 L900 52"/>
-                    <g class="candles">
-                      <rect x="66" y="220" width="12" height="26" class="upc"/><line x1="72" y1="207" x2="72" y2="254"/>
-                      <rect x="111" y="232" width="12" height="19" class="downc"/><line x1="117" y1="221" x2="117" y2="260"/>
-                      <rect x="201" y="198" width="12" height="31" class="upc"/><line x1="207" y1="185" x2="207" y2="242"/>
-                      <rect x="246" y="196" width="12" height="17" class="downc"/><line x1="252" y1="185" x2="252" y2="224"/>
-                      <rect x="336" y="150" width="12" height="29" class="upc"/><line x1="342" y1="138" x2="342" y2="191"/>
-                      <rect x="381" y="140" width="12" height="22" class="upc"/><line x1="387" y1="127" x2="387" y2="176"/>
-                      <rect x="471" y="118" width="12" height="26" class="downc"/><line x1="477" y1="102" x2="477" y2="158"/>
-                      <rect x="516" y="112" width="12" height="20" class="upc"/><line x1="522" y1="97" x2="522" y2="145"/>
-                      <rect x="606" y="88" width="12" height="26" class="upc"/><line x1="612" y1="70" x2="612" y2="127"/>
-                      <rect x="651" y="66" width="12" height="28" class="upc"/><line x1="657" y1="52" x2="657" y2="108"/>
-                      <rect x="741" y="48" width="12" height="24" class="downc"/><line x1="747" y1="35" x2="747" y2="83"/>
-                      <rect x="786" y="42" width="12" height="22" class="upc"/><line x1="792" y1="27" x2="792" y2="78"/>
-                      <rect x="876" y="38" width="12" height="21" class="upc"/><line x1="882" y1="24" x2="882" y2="72"/>
-                    </g>
-                  </svg>
-                  <div class="price-axis"><span>24,900</span><span>24,880</span><span>24,860</span><span>24,840</span><span>24,820</span><span>24,800</span></div>
-                </div>
-                <div class="lower-panel">
-                  <div class="volume-bars">
-                    <span style="height:34%"></span><span style="height:48%"></span><span style="height:28%"></span><span style="height:56%"></span><span style="height:44%"></span><span style="height:70%"></span><span style="height:51%"></span><span style="height:82%"></span><span style="height:61%"></span><span style="height:90%"></span><span style="height:73%"></span><span style="height:96%"></span><span style="height:68%"></span><span style="height:84%"></span><span style="height:74%"></span><span style="height:100%"></span><span style="height:82%"></span><span style="height:92%"></span><span style="height:64%"></span><span style="height:88%"></span>
+          </div>
+
+          <div class="accordion" data-accordion>
+            <!--
+              INSERT YOUR EXISTING Q&A HERE.
+              Do not change the structure. Duplicate .accordion-item as needed.
+
+              Example:
+              <article class="accordion-item">
+                <button class="accordion-trigger" type="button" aria-expanded="false">
+                  <span class="question-number">01</span>
+                  <span class="question-text">YOUR QUESTION</span>
+                  <span class="question-toggle" aria-hidden="true"></span>
+                </button>
+                <div class="accordion-answer" hidden>
+                  <div class="answer-inner">
+                    <p>YOUR ANSWER</p>
                   </div>
-                  <div class="mini-cvd"><span>CVD</span><svg viewBox="0 0 300 70" preserveAspectRatio="none"><path d="M0 52 L25 50 L50 54 L75 41 L100 46 L125 33 L150 38 L175 28 L200 32 L225 20 L250 26 L275 12 L300 18"/></svg></div>
-                  <div class="mini-profile"><span>VOLUME PROFILE</span><div class="profile-bars"><i style="width:38%"></i><i style="width:66%"></i><i style="width:52%"></i><i style="width:82%"></i><i style="width:58%"></i><i style="width:92%"></i><i style="width:47%"></i><i style="width:70%"></i></div></div>
+                </div>
+              </article>
+            -->
+
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">01</span>
+                <span class="question-text">WHAT IS SPECTRA?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <p>SPECTRA is a market analysis platform focused on <strong>order flow, volume and market structure.</strong> Built to help traders see what is actually happening beneath price.</p>
                 </div>
               </div>
-              <aside class="dom">
-                <div class="dom-title">DOM</div>
-                <div class="dom-head"><span>BUY</span><span>PRICE</span><span>SELL</span></div>
-                <div class="dom-row"><b>18</b><span>24,875.00</span><em>12</em></div>
-                <div class="dom-row"><b>24</b><span>24,874.75</span><em>19</em></div>
-                <div class="dom-row active"><b>31</b><span>24,874.50</span><em>28</em></div>
-                <div class="dom-row"><b>14</b><span>24,874.25</span><em>35</em></div>
-                <div class="dom-row"><b>22</b><span>24,874.00</span><em>17</em></div>
-                <div class="dom-row"><b>11</b><span>24,873.75</span><em>42</em></div>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </section>
+            </article>
 
-      <section class="platform section-grid" id="platform">
-        <div class="section-intro reveal">
-          <div class="eyebrow">THE PLATFORM</div>
-          <h2>One environment.<br><span>A deeper view.</span></h2>
-          <p>Designed around the way traders actually read markets: price first, then the information beneath it.</p>
-        </div>
-        <div class="platform-stack reveal delay-1">
-          <div class="stack-card stack-back"></div>
-          <div class="stack-card stack-mid"></div>
-          <div class="stack-card stack-front">
-            <div class="stack-toolbar"><span>SPECTRA</span><span>NQ</span><span>5m</span><span>Indicators</span><span>Footprint</span><span>Depth</span></div>
-            <div class="stack-body">
-              <div class="fake-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-              <div class="fake-footprint">
-                <div><b>128</b><b>96</b><b>142</b><b>118</b><b>173</b><b>149</b></div>
-                <div><i>−42</i><i>+18</i><i>+67</i><i>−12</i><i>+91</i><i>+38</i></div>
-                <div><i>31%</i><i>54%</i><i>68%</i><i>44%</i><i>72%</i><i>59%</i></div>
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">02</span>
+                <span class="question-text">WHY DID YOU BUILD IT?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <p>SPECTRA was born from a simple problem: I couldn't find an order flow platform that worked the way I wanted it to. So I decided to <strong>build it myself.</strong></p>
+                </div>
               </div>
-            </div>
+            </article>
+
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">03</span>
+                <span class="question-text">WHAT ARE WE BUILDING?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <ul class="answer-list">
+                    <li>Clean, focused interface</li>
+                    <li>Deep order flow and volume visualization</li>
+                    <li>Highly customizable workspace</li>
+                    <li>Built around real trading workflows</li>
+                    <li>Less noise, more relevant data</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">04</span>
+                <span class="question-text">WHO IS IT FOR?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <p>For traders who want to go beyond price action and explore <strong>volume, order flow, liquidity and market structure</strong> in greater depth.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">05</span>
+                <span class="question-text">IS IT FINISHED?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <p>SPECTRA is currently in development. Built in public, one feature at a time. <strong>Follow the build.</strong></p>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="layers" id="layers">
-        <div class="layers-heading reveal">
-          <div class="eyebrow">MARKET LAYERS</div>
-          <h2>See more than price.</h2>
-          <p>Move through the layers of market information without leaving the workspace. The system is being built one layer at a time.</p>
-        </div>
-        <div class="layer-explorer reveal delay-1">
-          <div class="layer-list" role="tablist" aria-label="Market layers">
-            <button class="layer-tab active" data-layer="chart"><span>01</span>Charting</button>
-            <button class="layer-tab" data-layer="volume"><span>02</span>Volume</button>
-            <button class="layer-tab" data-layer="profile"><span>03</span>Volume Profile</button>
-            <button class="layer-tab" data-layer="footprint"><span>04</span>Footprint</button>
-            <button class="layer-tab" data-layer="delta"><span>05</span>Delta & CVD</button>
-            <button class="layer-tab" data-layer="depth"><span>06</span>Market Depth</button>
-          </div>
-          <div class="layer-stage">
-            <div class="stage-top"><span id="layerLabel">CHARTING</span><span class="mono">NQ · 5m</span></div>
-            <div class="stage-chart" id="stageChart">
-              <div class="stage-grid"></div>
-              <div class="stage-line"></div>
-              <div class="stage-profile"></div>
-              <div class="stage-footprint"></div>
-              <div class="stage-cvd"></div>
-              <div class="stage-dom"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section class="waitlist-section" id="waitlist">
+        <div class="waitlist-container">
+          <div class="section-index reveal">02</div>
+          <div class="eyebrow reveal delay-1">EARLY ACCESS</div>
+          <h2 class="reveal delay-2">JOIN THE WAITLIST</h2>
+          <p class="waitlist-copy reveal delay-3">
+            Follow the development of SPECTRA and be notified when early access becomes available.
+          </p>
 
-      <section class="tools" id="features">
-        <div class="tools-heading reveal">
-          <div class="eyebrow">CORE TOOLS</div>
-          <h2>Built around how markets move.</h2>
-        </div>
-        <div class="tools-grid">
-          <article class="tool-card reveal"><div class="tool-index">01</div><div><h3>Advanced Charting</h3><p>A clean charting environment designed for real market analysis.</p></div><span class="tool-arrow">↗</span></article>
-          <article class="tool-card reveal delay-1"><div class="tool-index">02</div><div><h3>Volume & Profiles</h3><p>Volume Profile, POC, Value Area and distribution at a glance.</p></div><span class="tool-arrow">↗</span></article>
-          <article class="tool-card reveal"><div class="tool-index">03</div><div><h3>Footprint</h3><p>See what happened inside every candle with bid × ask data.</p></div><span class="tool-arrow">↗</span></article>
-          <article class="tool-card reveal delay-1"><div class="tool-index">04</div><div><h3>Order Flow</h3><p>Read execution, imbalance, absorption and market depth.</p></div><span class="tool-arrow">↗</span></article>
-          <article class="tool-card wide reveal"><div class="tool-index">05</div><div><h3>Replay & Analytics</h3><p>Study the market, revisit sessions and build a deeper understanding of your process.</p></div><span class="tool-arrow">↗</span></article>
-        </div>
-      </section>
-
-      <section class="workspace section-grid" id="workspace">
-        <div class="workspace-copy reveal">
-          <div class="eyebrow">THE WORKSPACE</div>
-          <h2>One workspace.<br><span>Your market, your way.</span></h2>
-          <p>Arrange the information you need around the way you trade. SPECTRA is being built to let the workspace adapt to the trader, not the other way around.</p>
-          <a class="text-link" href="#early-access">Explore the direction <span>↗</span></a>
-        </div>
-        <div class="workspace-demo reveal delay-1">
-          <div class="ws-top"><span class="active">CHART</span><span>FOOTPRINT</span><span>VOLUME PROFILE</span><span>CVD</span><span>DOM</span></div>
-          <div class="ws-grid">
-            <div class="ws-chart"><div class="ws-price"></div><div class="ws-volume"></div></div>
-            <div class="ws-profile"><span>PROFILE</span><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="ws-foot"><span>FOOTPRINT</span><div class="foot-row"><b>142</b><b>188</b><b>103</b><b>211</b></div><div class="foot-row"><i>−32</i><i>+74</i><i>+18</i><i>+91</i></div></div>
-            <div class="ws-dom"><span>DOM</span><em>24,874.50</em><em>24,874.25</em><em class="selected">24,874.00</em><em>24,873.75</em></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="philosophy">
-        <div class="philosophy-inner reveal">
-          <div class="eyebrow">THE IDEA</div>
-          <h2>From traders,<br><span>to traders.</span></h2>
-          <p>SPECTRA is being built from the workflow backwards: start with how the market is actually read, then build the tools around it.</p>
-        </div>
-      </section>
-
-      <section class="roadmap" id="roadmap">
-        <div class="roadmap-heading reveal">
-          <div class="eyebrow">IN DEVELOPMENT</div>
-          <h2>The platform is still being built.<br><span>The direction is not.</span></h2>
-        </div>
-        <div class="roadmap-list reveal delay-1">
-          <div class="roadmap-row"><span class="state available">CURRENT</span><strong>Core charting & workspace</strong><span class="roadmap-note">Current foundation</span></div>
-          <div class="roadmap-row"><span class="state progress">IN DEVELOPMENT</span><strong>Footprint & order flow</strong><span class="roadmap-note">Building now</span></div>
-          <div class="roadmap-row"><span class="state planned">PLANNED</span><strong>Volume profile & advanced analytics</strong><span class="roadmap-note">Next layers</span></div>
-          <div class="roadmap-row"><span class="state planned">PLANNED</span><strong>Deeper market data integrations</strong><span class="roadmap-note">Future direction</span></div>
-        </div>
-      </section>
-
-      <section class="early-access" id="early-access">
-        <div class="early-inner reveal">
-          <div class="eyebrow">SPECTRA OF</div>
-          <h2>Follow the build.</h2>
-          <p>Get notified when the SPECTRA early access list opens.</p>
-          <form class="signup" id="signup">
+          <form class="waitlist-form reveal delay-4" id="waitlist-form">
             <label class="sr-only" for="email">Email address</label>
-            <input id="email" type="email" placeholder="you@email.com" autocomplete="email" required>
-            <button type="submit">Notify Me <span>↗</span></button>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+            <button type="submit">
+              <span>JOIN THE WAITLIST</span>
+              <span>↗</span>
+            </button>
           </form>
-          <small id="form-message">Early access is opening soon. No spam.</small>
+
+          <p class="form-note reveal delay-4" id="form-note">
+            Your email will only be used for SPECTRA updates.
+          </p>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="footer-brand">
-        <div class="brand"><img src="assets/spectra-logo.png" alt="" class="brand-mark"><span>SPECTRA</span></div>
-        <p>FROM TRADERS, FOR TRADERS.</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <img src="assets/spectra-logo.png" alt="" class="brand-logo">
+            <span>SPECTRA</span>
+          </a>
+          <p>FROM TRADERS, FOR TRADERS.</p>
+        </div>
+
+        <div class="footer-meta">
+          <span>© 2026 SPECTRA OF</span>
+          <a href="https://spectraof.com">spectraof.com</a>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="#platform">Platform</a>
-        <a href="#layers">Market Layers</a>
-        <a href="#workspace">Workspace</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#early-access">Early Access</a>
+
+      <div class="footer-bottom">
+        <span>ORDER FLOW PLATFORM · IN DEVELOPMENT</span>
+        <span>SPECTRA OF</span>
       </div>
-      <div class="footer-bottom"><span>© 2026 SPECTRA OF</span><span>spectraof.com</span></div>
     </footer>
   </div>
+
   <script src="app.js"></script>
 </body>
 </html>

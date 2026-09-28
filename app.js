@@ -1,72 +1,81 @@
 const nav = document.getElementById("nav");
-const menuButton = document.querySelector(".menu-button");
-const navLinks = document.querySelector(".nav-links");
+const menu = document.querySelector(".menu-toggle");
+const navActions = document.querySelector(".nav-actions");
 
 window.addEventListener("scroll", () => {
-  nav.classList.toggle("scrolled", window.scrollY > 18);
-}, {passive:true});
+  nav.classList.toggle("scrolled", window.scrollY > 14);
+}, { passive: true });
 
-menuButton?.addEventListener("click", () => {
-  const open = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!open));
-  navLinks.classList.toggle("mobile-open", !open);
-  menuButton.textContent = open ? "☰" : "×";
-  menuButton.setAttribute("aria-label", open ? "Open navigation" : "Close navigation");
+menu?.addEventListener("click", () => {
+  const isOpen = menu.getAttribute("aria-expanded") === "true";
+  menu.setAttribute("aria-expanded", String(!isOpen));
+  navActions.classList.toggle("mobile-open", !isOpen);
 });
 
-const revealObserver = new IntersectionObserver((entries) => {
+navActions?.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    menu?.setAttribute("aria-expanded", "false");
+    navActions.classList.remove("mobile-open");
+  });
+});
+
+const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
       revealObserver.unobserve(entry.target);
     }
   });
-}, {threshold:.12});
+}, { threshold: 0.12 });
 
 document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
-const tabs = document.querySelectorAll(".layer-tab");
-const stage = document.getElementById("stageChart");
-const label = document.getElementById("layerLabel");
+/*
+  Q&A accordion.
+  The placeholder items are disabled until real questions are inserted.
+  For real items, remove `disabled` from the trigger.
+*/
+document.querySelectorAll(".accordion-item:not(.placeholder-item)").forEach(item => {
+  const trigger = item.querySelector(".accordion-trigger");
+  const answer = item.querySelector(".accordion-answer");
 
-const layerMap = {
-  chart: ["CHARTING", []],
-  volume: ["VOLUME", []],
-  profile: ["VOLUME PROFILE", ["show-profile"]],
-  footprint: ["FOOTPRINT", ["show-footprint"]],
-  delta: ["DELTA & CVD", ["show-cvd"]],
-  depth: ["MARKET DEPTH", ["show-dom"]]
-};
+  trigger.addEventListener("click", () => {
+    const expanded = trigger.getAttribute("aria-expanded") === "true";
 
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    tabs.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-    const [text, classes] = layerMap[tab.dataset.layer];
-    label.textContent = text;
-    stage.className = "stage-chart";
-    classes.forEach(c => stage.classList.add(c));
+    document.querySelectorAll(".accordion-item").forEach(other => {
+      if (other !== item) {
+        const otherTrigger = other.querySelector(".accordion-trigger");
+        const otherAnswer = other.querySelector(".accordion-answer");
+        if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+        if (otherAnswer) {
+          otherAnswer.hidden = true;
+          otherAnswer.style.maxHeight = "0px";
+        }
+      }
+    });
+
+    trigger.setAttribute("aria-expanded", String(!expanded));
+
+    if (!expanded) {
+      answer.hidden = false;
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+      answer.style.maxHeight = "0px";
+      window.setTimeout(() => { answer.hidden = true; }, 300);
+    }
   });
 });
 
-const signup = document.getElementById("signup");
-const formMessage = document.getElementById("form-message");
+const form = document.getElementById("waitlist-form");
+const note = document.getElementById("form-note");
 
-signup?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("email");
-  if (!email.value || !email.checkValidity()) {
-    email.reportValidity();
-    return;
-  }
-  formMessage.textContent = "You're on the radar. The early access list will open soon.";
-  formMessage.style.color = "#18c77a";
-  email.value = "";
-});
+form?.addEventListener("submit", event => {
+  event.preventDefault();
 
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener("click", () => {
-    navLinks?.classList.remove("mobile-open");
-    menuButton?.setAttribute("aria-expanded", "false");
-  });
+  /*
+    Connect this handler to the actual email provider later.
+    No fake submission is performed in this prototype.
+  */
+  note.textContent = "Form ready. Connect your email provider to activate the waitlist.";
+  note.style.color = "#1597ff";
 });
