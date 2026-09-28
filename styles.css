@@ -185,27 +185,13 @@ button,input{font:inherit}
   box-shadow:0 0 10px rgba(21,151,255,.55);
 }
 
-.hero-logo{
-  width:92px;
-  height:92px;
+.hero-wordmark-image{
+  width:min(620px,78vw);
+  height:auto;
+  display:block;
   object-fit:contain;
-  margin-bottom:22px;
-  filter:drop-shadow(0 0 24px rgba(21,151,255,.08));
-}
-
-.hero-wordmark{
-  font-size:clamp(54px,8vw,92px);
-  line-height:.9;
-  font-weight:500;
-  letter-spacing:.075em;
-  margin-left:.075em;
-}
-
-.hero-payoff{
-  margin-top:20px;
-  color:#8d9ca8;
-  font:10px var(--mono);
-  letter-spacing:.27em;
+  margin:0 auto 30px;
+  filter:drop-shadow(0 0 28px rgba(21,151,255,.07));
 }
 
 .hero-description{
@@ -610,19 +596,9 @@ button,input{font:inherit}
     font-size:8px;
   }
 
-  .hero-logo{
-    width:72px;
-    height:72px;
-  }
-
-  .hero-wordmark{
-    font-size:52px;
-    letter-spacing:.06em;
-  }
-
-  .hero-payoff{
-    font-size:8px;
-    letter-spacing:.2em;
+  .hero-wordmark-image{
+    width:min(500px,88vw);
+    margin-bottom:25px;
   }
 
   .hero-description{
@@ -757,5 +733,67 @@ button,input{font:inherit}
   .answer-list{
     font-size:13px;
     line-height:1.85;
+  }
+}
+
+/* SPECTRA V2.1: restrained scroll atmosphere */
+.qa-section,
+.waitlist-section{
+  position:relative;
+  overflow:hidden;
+}
+
+.qa-section::before,
+.waitlist-section::before{
+  content:"";
+  position:absolute;
+  top:-25%;
+  left:-35%;
+  width:55%;
+  height:150%;
+  background:linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(21,151,255,0) 38%,
+    rgba(21,151,255,.055) 49%,
+    rgba(115,196,255,.025) 53%,
+    transparent 65%
+  );
+  transform:translateX(-35%) skewX(-12deg);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .8s ease;
+}
+
+.qa-section.section-visible::before,
+.waitlist-section.section-visible::before{
+  opacity:1;
+  animation:spectraSweep 5.5s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes spectraSweep{
+  from{transform:translateX(-35%) skewX(-12deg)}
+  to{transform:translateX(245%) skewX(-12deg)}
+}
+
+.hero-wordmark-image{
+  transition:filter .5s ease, transform .5s ease;
+}
+
+.hero-wordmark-image:hover{
+  filter:drop-shadow(0 0 34px rgba(21,151,255,.12));
+  transform:translateY(-1px);
+}
+
+@media(max-width:720px){
+  .hero-wordmark-image{
+    width:min(500px,88vw);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .qa-section.section-visible::before,
+  .waitlist-section.section-visible::before{
+    animation:none;
   }
 }

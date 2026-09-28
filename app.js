@@ -30,6 +30,16 @@ const revealObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("section-visible");
+  });
+}, { threshold: 0.18 });
+
+document.querySelectorAll(".qa-section, .waitlist-section").forEach(section => {
+  sectionObserver.observe(section);
+});
+
 /*
   Q&A accordion.
   The placeholder items are disabled until real questions are inserted.
