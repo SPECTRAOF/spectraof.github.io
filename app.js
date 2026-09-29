@@ -147,13 +147,44 @@ document.querySelectorAll(".accordion-item:not(.placeholder-item)").forEach(item
 const form = document.getElementById("waitlist-form");
 const note = document.getElementById("form-note");
 
-form?.addEventListener("submit", event => {
+form?.addEventListener("submit", async event => {
   event.preventDefault();
 
-  /*
-    Connect this handler to the actual email provider later.
-    No fake submission is performed in this prototype.
-  */
-  note.textContent = "Form ready. Connect your email provider to activate the waitlist.";
-  note.style.color = "#1597ff";
+  const emailInput = document.getElementById("email");
+  const button = form.querySelector("button");
+  const email = emailInput.value.trim();
+
+  if (!email) return;
+
+  button.disabled = true;
+  note.textContent = "JOINING...";
+  note.style.color = "#81909c";
+
+  try {
+    const response = await fetch(
+      "https://spectra-waitlist.spectraof-ceo.workers.dev",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.message || "Something went wrong.");
+    }
+
+    note.textContent = result.message.toUpperCase();
+    note.style.color = "#1597ff";
+    emailInput.value = "";
+  } catch (error) {
+    note.textContent = error.message.toUpperCase();
+    note.style.color = "#81909c";
+  } finally {
+    button.disabled = false;
+  }
 });
