@@ -813,3 +813,70 @@ button,input{font:inherit}
     gap:8px;
   }
 }
+
+/* V2.6: mobile uses the same SPECTRA-to-S lock-up target as desktop.
+   No mobile-only slide toward the development label. */
+@media (max-width:720px){
+  .hero-header-image{
+    transform-origin: 50% 50%;
+  }
+}
+
+/* SPECTRA V2.7: final logo sizing pass */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  height:24px;
+}
+.brand-s{
+  width:22px !important;
+  height:22px !important;
+  object-fit:contain;
+  display:block;
+  flex:0 0 22px;
+}
+.brand-wordmark{
+  width:112px !important;
+  height:auto !important;
+  display:block;
+  object-fit:contain;
+  flex:0 0 auto;
+}
+
+.hero-s-image{
+  width:82px !important;
+  height:82px !important;
+  object-fit:contain;
+}
+
+.hero-header-image{
+  width:min(420px, 64vw) !important;
+  max-width:420px;
+  height:auto !important;
+}
+
+@media(max-width:720px){
+  .brand{
+    gap:7px;
+    height:22px;
+  }
+  .brand-s{
+    width:20px !important;
+    height:20px !important;
+    flex-basis:20px;
+  }
+  .brand-wordmark{
+    width:94px !important;
+  }
+
+  .hero-s-image{
+    width:68px !important;
+    height:68px !important;
+  }
+
+  .hero-header-image{
+    width:min(330px, 76vw) !important;
+    max-width:330px;
+  }
+}
