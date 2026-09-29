@@ -62,23 +62,25 @@ function updateHeroMotion(){
 
   if (mobile){
     /*
-      Mobile uses the same final lock-up as desktop:
-      the SPECTRA wordmark converges onto the center of the S.
-      It must NOT slide toward CURRENTLY IN DEVELOPMENT.
+      Mobile deliberately uses one clean slide:
+      SPECTRA rises past the S and settles just above CURRENTLY IN DEVELOPMENT.
+      It does NOT attempt the desktop logo-lock composition.
     */
-    const merge = Math.max(0, Math.min(1, (progress - 0.04) / 0.58));
+    const merge = Math.max(0, Math.min(1, (progress - 0.04) / 0.52));
     const eased = easeInOut(merge);
 
-    const sCenter = heroS.offsetTop + (heroS.offsetHeight / 2);
-    const headerCenter = heroHeader.offsetTop + (heroHeader.offsetHeight / 2);
-    const lockLift = sCenter - headerCenter;
+    const targetLift =
+      heroStatus.offsetTop -
+      heroHeader.offsetTop -
+      heroHeader.offsetHeight -
+      14;
 
-    const lift = lockLift * eased;
+    const lift = targetLift * eased;
 
     heroHeader.style.transform = `translate3d(0, ${lift}px, 0)`;
-    heroS.style.transform = `translate3d(0, ${4 * eased}px, 0) scale(${1 + .025 * eased})`;
+    heroS.style.transform = `translate3d(0, ${Math.min(5, 5 * eased)}px, 0) scale(${1 + .025 * eased})`;
 
-    const fade = easeInOut(Math.max(0, Math.min(1, (progress - .58) / .28)));
+    const fade = easeInOut(Math.max(0, Math.min(1, (progress - .48) / .30)));
     heroPayoff.style.transform = `translate3d(0, ${-12 * fade}px, 0)`;
     heroPayoff.style.opacity = String(1 - .82 * fade);
     heroDescription.style.transform = `translate3d(0, ${-16 * fade}px, 0)`;
