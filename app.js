@@ -40,6 +40,65 @@ document.querySelectorAll(".qa-section, .waitlist-section").forEach(section => {
   sectionObserver.observe(section);
 });
 
+/* Hero scroll choreography, driven by requestAnimationFrame for smoother motion. */
+const hero = document.querySelector(".hero");
+const heroS = document.querySelector(".hero-s-image");
+const heroHeader = document.querySelector(".hero-header-image");
+const heroStatus = document.querySelector(".hero .status");
+const heroPayoff = document.querySelector(".hero .hero-payoff");
+const heroDescription = document.querySelector(".hero .hero-description");
+const heroCta = document.querySelector(".hero .hero-cta");
+const heroScroll = document.querySelector(".hero .hero-scroll");
+
+let heroRaf = 0;
+let lastHeroProgress = -1;
+
+function updateHeroMotion() {
+  heroRaf = 0;
+  if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const range = Math.max(1, hero.offsetHeight - window.innerHeight);
+  const progress = Math.max(0, Math.min(1, window.scrollY / range));
+
+  if (Math.abs(progress - lastHeroProgress) < 0.0015) return;
+  lastHeroProgress = progress;
+
+  // The wordmark starts below the S and rises into its center as the hero scrolls.
+  const merge = Math.min(1, Math.max(0, (progress - 0.06) / 0.58));
+  const eased = merge * merge * (3 - 2 * merge);
+  const headerLift = -205 * eased;
+
+  heroHeader.style.transform = `translate3d(0, ${headerLift}px, 0)`;
+
+  // Let the S breathe slightly while the wordmark moves into it.
+  const sScale = 1 + 0.045 * eased;
+  heroS.style.transform = `translate3d(0, ${4 * eased}px, 0) scale(${sScale})`;
+
+  // Fade secondary copy after the merge so the logo becomes the focal point.
+  const fade = Math.max(0, Math.min(1, (progress - 0.58) / 0.28));
+  const fadeEased = fade * fade * (3 - 2 * fade);
+
+  heroPayoff.style.transform = `translate3d(0, ${-18 * fadeEased}px, 0)`;
+  heroPayoff.style.opacity = String(1 - 0.82 * fadeEased);
+
+  heroDescription.style.transform = `translate3d(0, ${-24 * fadeEased}px, 0)`;
+  heroDescription.style.opacity = String(1 - fadeEased);
+
+  heroCta.style.transform = `translate3d(0, ${-28 * fadeEased}px, 0)`;
+  heroCta.style.opacity = String(1 - fadeEased);
+
+  heroStatus.style.opacity = String(1 - 0.7 * eased);
+  heroScroll.style.opacity = String(1 - fadeEased);
+}
+
+function requestHeroMotion() {
+  if (!heroRaf) heroRaf = requestAnimationFrame(updateHeroMotion);
+}
+
+window.addEventListener("scroll", requestHeroMotion, { passive: true });
+window.addEventListener("resize", requestHeroMotion, { passive: true });
+requestHeroMotion();
+
 /*
   Q&A accordion.
   The placeholder items are disabled until real questions are inserted.
