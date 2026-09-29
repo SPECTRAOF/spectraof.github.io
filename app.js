@@ -30,8 +30,17 @@ const revealObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("section-visible");
+  });
+}, { threshold: 0.18 });
 
-/* Hero scroll choreography */
+document.querySelectorAll(".qa-section, .waitlist-section").forEach(section => {
+  sectionObserver.observe(section);
+});
+
+/* Hero scroll choreography, driven by requestAnimationFrame for smoother motion. */
 const hero = document.querySelector(".hero");
 const heroS = document.querySelector(".hero-s-image");
 const heroHeader = document.querySelector(".hero-header-image");
@@ -44,82 +53,59 @@ const heroScroll = document.querySelector(".hero .hero-scroll");
 let heroRaf = 0;
 let lastHeroProgress = -1;
 
-function easeInOut(t){
-  return t * t * (3 - 2 * t);
-}
-
-function updateHeroMotion(){
+function updateHeroMotion() {
   heroRaf = 0;
   if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   const range = Math.max(1, hero.offsetHeight - window.innerHeight);
   const progress = Math.max(0, Math.min(1, window.scrollY / range));
 
-  if (Math.abs(progress - lastHeroProgress) < 0.001) return;
+  if (Math.abs(progress - lastHeroProgress) < 0.0015) return;
   lastHeroProgress = progress;
 
-  const mobile = window.matchMedia("(max-width:720px)").matches;
+  // The wordmark starts below the S and rises into its exact center.
+  // The target is calculated from layout geometry, so desktop and mobile
+  // use the same movement even though the assets have different responsive sizes.
+  const merge = Math.min(1, Math.max(0, (progress - 0.06) / 0.58));
+  const eased = merge * merge * (3 - 2 * merge);
 
-  if (mobile){
-    /*
-      Mobile deliberately uses one clean slide:
-      SPECTRA rises past the S and settles just above CURRENTLY IN DEVELOPMENT.
-      It does NOT attempt the desktop logo-lock composition.
-    */
-    const merge = Math.max(0, Math.min(1, (progress - 0.04) / 0.52));
-    const eased = easeInOut(merge);
+  const sCenter = heroS.offsetTop + (heroS.offsetHeight / 2);
+  const headerCenter = heroHeader.offsetTop + (heroHeader.offsetHeight / 2);
+  const mergeLift = sCenter - headerCenter;
+  const headerLift = mergeLift * eased;
 
-    const targetLift =
-      heroStatus.offsetTop -
-      heroHeader.offsetTop -
-      heroHeader.offsetHeight -
-      14;
+  heroHeader.style.transform = `translate3d(0, ${headerLift}px, 0)`;
 
-    const lift = targetLift * eased;
+  // Let the S breathe slightly while the wordmark moves into it.
+  const sScale = 1 + 0.045 * eased;
+  heroS.style.transform = `translate3d(0, ${4 * eased}px, 0) scale(${sScale})`;
 
-    heroHeader.style.transform = `translate3d(0, ${lift}px, 0)`;
-    heroS.style.transform = `translate3d(0, ${Math.min(5, 5 * eased)}px, 0) scale(${1 + .025 * eased})`;
+  // Fade secondary copy after the merge so the logo becomes the focal point.
+  const fade = Math.max(0, Math.min(1, (progress - 0.58) / 0.28));
+  const fadeEased = fade * fade * (3 - 2 * fade);
 
-    const fade = easeInOut(Math.max(0, Math.min(1, (progress - .48) / .30)));
-    heroPayoff.style.transform = `translate3d(0, ${-12 * fade}px, 0)`;
-    heroPayoff.style.opacity = String(1 - .82 * fade);
-    heroDescription.style.transform = `translate3d(0, ${-16 * fade}px, 0)`;
-    heroDescription.style.opacity = String(1 - fade);
-    heroCta.style.transform = `translate3d(0, ${-18 * fade}px, 0)`;
-    heroCta.style.opacity = String(1 - fade);
-    heroStatus.style.opacity = String(1 - .72 * eased);
-    heroScroll.style.opacity = String(1 - fade);
-  } else {
-    // Desktop: the wordmark rises into the center of the S.
-    const merge = Math.min(1, Math.max(0, (progress - 0.06) / 0.58));
-    const eased = easeInOut(merge);
-    const headerLift = -205 * eased;
+  heroPayoff.style.transform = `translate3d(0, ${-18 * fadeEased}px, 0)`;
+  heroPayoff.style.opacity = String(1 - 0.82 * fadeEased);
 
-    heroHeader.style.transform = `translate3d(0, ${headerLift}px, 0)`;
-    heroS.style.transform = `translate3d(0, ${4 * eased}px, 0) scale(${1 + .045 * eased})`;
+  heroDescription.style.transform = `translate3d(0, ${-24 * fadeEased}px, 0)`;
+  heroDescription.style.opacity = String(1 - fadeEased);
 
-    const fade = easeInOut(Math.max(0, Math.min(1, (progress - .58) / .28)));
-    heroPayoff.style.transform = `translate3d(0, ${-18 * fade}px, 0)`;
-    heroPayoff.style.opacity = String(1 - .82 * fade);
-    heroDescription.style.transform = `translate3d(0, ${-24 * fade}px, 0)`;
-    heroDescription.style.opacity = String(1 - fade);
-    heroCta.style.transform = `translate3d(0, ${-28 * fade}px, 0)`;
-    heroCta.style.opacity = String(1 - fade);
-    heroStatus.style.opacity = String(1 - .7 * eased);
-    heroScroll.style.opacity = String(1 - fade);
-  }
+  heroCta.style.transform = `translate3d(0, ${-28 * fadeEased}px, 0)`;
+  heroCta.style.opacity = String(1 - fadeEased);
+
+  heroStatus.style.opacity = String(1 - 0.7 * eased);
+  heroScroll.style.opacity = String(1 - fadeEased);
 }
 
-function requestHeroMotion(){
+function requestHeroMotion() {
   if (!heroRaf) heroRaf = requestAnimationFrame(updateHeroMotion);
 }
 
-window.addEventListener("scroll", requestHeroMotion, {passive:true});
-window.addEventListener("resize", requestHeroMotion, {passive:true});
-window.addEventListener("orientationchange", () => {
+window.addEventListener("scroll", requestHeroMotion, { passive: true });
+window.addEventListener("resize", () => {
   lastHeroProgress = -1;
   requestHeroMotion();
-}, {passive:true});
+}, { passive: true });
 requestHeroMotion();
 
 /*
@@ -170,10 +156,4 @@ form?.addEventListener("submit", event => {
   */
   note.textContent = "Form ready. Connect your email provider to activate the waitlist.";
   note.style.color = "#1597ff";
-});
-
-document.querySelector("[data-privacy-link]")?.addEventListener("click", () => {
-  requestAnimationFrame(() => {
-    document.getElementById("privacy")?.scrollIntoView({behavior:"smooth", block:"center"});
-  });
 });
