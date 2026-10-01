@@ -3,165 +3,251 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SPECTRA Education</title>
+  <title>SPECTRA</title>
 </head>
 <body>
 <main class="education-page" aria-labelledby="education-title">
-  <header class="education-hero">
-    <div>
+  <header class="education-top">
+    <div class="education-top-left">
       <div class="education-kicker">SPECTRA / EDUCATION</div>
-      <h1 id="education-title">Understand the market<br><span>before you trade it.</span></h1>
-      <p class="education-intro">A structured library for learning how price, volume, order flow, liquidity and execution fit together. Start with the foundations and move deeper only when the previous layer makes sense.</p>
+      <h1 id="education-title">Market knowledge,<br><span>structured.</span></h1>
+      <p class="education-intro">A structured learning space for understanding price, volume, order flow, liquidity and execution. Choose your level first, then open the concepts you want to study.</p>
     </div>
-    <div class="education-meta">
-      <span>BEGINNER → EXPERT</span>
+    <div class="education-status">
+      <span>EDUCATION LIBRARY</span>
       <span>12 AREAS · 36 TOPICS</span>
     </div>
   </header>
 
-  <div class="education-toolbar">
-    <label class="education-search">
-      <span>⌕</span>
-      <input id="education-search-input" type="search" placeholder="Search a concept..." autocomplete="off">
-    </label>
-    <div class="education-filter" role="tablist" aria-label="Education level">
-      <button class="is-active" type="button" data-filter="all">ALL</button>
-      <button type="button" data-filter="beginner">BEGINNER</button>
-      <button type="button" data-filter="advanced">ADVANCED</button>
-      <button type="button" data-filter="expert">EXPERT</button>
-    </div>
-  </div>
-
-  <section class="education-grid" aria-label="Education topics">
-    <article class="edu-group" data-level="beginner" data-search="trading fundamentals market price order risk">
-      <div class="edu-group-head"><span>01</span><div><small>BEGINNER</small><h2>Trading Fundamentals</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>What is a market?</summary><div><p>A market is an auction where participants continuously submit orders to buy and sell. Price changes when available liquidity is consumed or when participants reprice their orders.</p><p><strong>Key idea:</strong> price is the result of transactions and order placement, not an isolated line moving by itself.</p></div></details>
-        <details><summary>Bid, ask and spread</summary><div><p>The <strong>bid</strong> is the highest displayed price someone is willing to buy at. The <strong>ask</strong> is the lowest displayed price someone is willing to sell at. The difference is the <strong>spread</strong>.</p><p>Market orders generally execute against available liquidity. Limit orders add or wait for liquidity at a chosen price.</p></div></details>
-        <details><summary>Market orders vs limit orders</summary><div><p>A market order prioritizes execution. A limit order prioritizes price. Neither is automatically better: the correct choice depends on the execution problem you are solving.</p><div class="edu-example"><b>Example</b><span>You want to buy immediately → execution certainty matters more.</span><span>You only want to buy at 100.00 or lower → price control matters more.</span></div></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="beginner" data-search="candles price action structure trend support resistance">
-      <div class="edu-group-head"><span>02</span><div><small>BEGINNER</small><h2>Reading Price</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>What a candle actually tells you</summary><div><p>Open, high, low and close describe the range and final position of price during a period. A candle is a compressed record of the auction, not a complete explanation of why price moved.</p></div></details>
-        <details><summary>Swings and market structure</summary><div><p>Instead of treating every candle as equally important, identify meaningful swing highs and lows. Structure gives context to individual movements and helps distinguish continuation from a change in behavior.</p></div></details>
-        <details><summary>Trend, range and transition</summary><div><p>A market can broadly be expanding in one direction, rotating inside a range, or transitioning between the two. The important question is not simply “up or down?” but <strong>what is price doing relative to the structure that came before it?</strong></p></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="beginner" data-search="risk management psychology probability expectancy drawdown">
-      <div class="edu-group-head"><span>03</span><div><small>BEGINNER</small><h2>Risk & Psychology</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>Risk comes before the setup</summary><div><p>A trading idea can be correct and still produce a losing trade. Risk management separates the quality of an idea from the size of its consequence.</p><p>Define risk per trade, maximum daily loss and conditions under which you stop trading before entering.</p></div></details>
-        <details><summary>Expectancy</summary><div><p>Expectancy describes the average outcome of a strategy over many trades. A simple model is:</p><div class="formula">Expectancy = (Win rate × average win) − (Loss rate × average loss)</div><p>A strategy does not need to win most trades to have positive expectancy if its winners are sufficiently larger than its losers.</p></div></details>
-        <details><summary>Drawdown and the losing streak</summary><div><p>Short sequences of losses are normal in probabilistic systems. The goal is to size risk so that an ordinary losing sequence does not force you to abandon the process.</p></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="beginner" data-search="process journal backtest execution discipline trading plan">
-      <div class="edu-group-head"><span>04</span><div><small>BEGINNER</small><h2>Building a Process</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>Turn an idea into a rule</summary><div><p>“I buy when the market looks strong” is difficult to test. A process becomes testable when context, setup, trigger, invalidation and exit are defined clearly enough that another person could identify the same trade.</p></div></details>
-        <details><summary>Backtesting</summary><div><p>Backtesting asks whether a defined rule set produced a repeatable distribution of outcomes on historical data. Record every qualifying trade, not only the attractive ones.</p></div></details>
-        <details><summary>Journal what matters</summary><div><p>Track setup, context, entry, stop, target, result, execution quality and deviations from the plan. The journal should help answer <strong>what is actually happening?</strong>, not simply how you felt about the last trade.</p></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="advanced" data-search="market structure auction acceptance rejection balance imbalance">
-      <div class="edu-group-head"><span>05</span><div><small>ADVANCED</small><h2>Market Structure</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>Structure is context</summary><div><p>Market structure organizes price into meaningful swings and areas of acceptance or rejection. A footprint signal without context can mean something very different inside a range than at a structural extreme.</p></div></details>
-        <details><summary>Balance and imbalance</summary><div><p><strong>Balance</strong> describes two-sided trade and repeated acceptance around an area. <strong>Imbalance</strong> describes a stronger directional auction where one side controls the progression of price.</p></div></details>
-        <details><summary>Acceptance vs rejection</summary><div><p>A quick move through a level is not the same as sustained trade there. Ask whether the market is actually accepting prices beyond a level or rejecting them and returning to the prior area.</p></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="advanced" data-search="volume profile poc vah val value area hvn lvn volume">
-      <div class="edu-group-head"><span>06</span><div><small>ADVANCED</small><h2>Volume</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>Volume: activity, not direction</summary><div><p>Volume tells you how much activity occurred, but volume alone does not tell you who will win next. Its meaning depends on price response, location and context.</p></div></details>
-        <details><summary>Volume Profile</summary><div><p>Volume Profile distributes activity across price levels rather than time. Common references include <strong>POC</strong>, the price with the greatest volume in the profile, and <strong>VAH / VAL</strong>, the upper and lower boundaries of the selected value area.</p><div class="edu-example"><b>Example</b><span>A large volume node can show an area where the market previously spent significant activity.</span><span>A low-volume area can represent a thinner part of the distribution where price previously moved through with less activity.</span></div><p>The exact calculation depends on the data and implementation. TradingView notes that its Volume Profile calculations use lower-timeframe data and that volume type differs across instruments. Source: TradingView</p></div></details>
-        <details><summary>POC, VAH, VAL, HVN and LVN</summary><div><p>These are references, not automatic trade signals. Their usefulness comes from observing how current price behaves when it interacts with previously active or thin areas.</p></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="advanced" data-search="order flow footprint delta bid ask aggressive buyers sellers transactions">
-      <div class="edu-group-head"><span>07</span><div><small>ADVANCED</small><h2>Order Flow</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>What order flow adds</summary><div><p>Traditional candles summarize price over time. Order flow can expose the transactions and aggressor-side activity occurring inside that summary, depending on the quality and granularity of the feed.</p></div></details>
-        <details><summary>Footprint charts</summary><div><p>A footprint can display traded volume at individual price levels, often separated into bid and ask activity. This makes it possible to study where aggressive buying or selling occurred inside a candle.</p></div></details>
-        <details><summary>Delta</summary><div><p>A common order-flow delta is <strong>aggressive buy volume minus aggressive sell volume</strong>. Positive delta means more volume was classified on the buy side; negative delta means more was classified on the sell side.</p><div class="edu-example"><b>Read the combination</b><span>Positive delta + strong upward price response → aggression is producing movement.</span><span>Positive delta + little upward progress → investigate whether that effort is being absorbed.</span></div></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="advanced" data-search="liquidity order book dom resting orders limit order book spoofing depth">
-      <div class="edu-group-head"><span>08</span><div><small>ADVANCED</small><h2>Liquidity</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>What liquidity means</summary><div><p>Liquidity is the availability of orders that can be matched with incoming demand or supply. A visible order book shows displayed liquidity, while executed trades show what actually transacted.</p></div></details>
-        <details><summary>DOM and market depth</summary><div><p>The DOM can show resting bids and asks around the current market. Depth is useful for understanding the current order-book state, but displayed orders can change or disappear and should not automatically be treated as committed intent.</p></div></details>
-        <details><summary>Liquidity interaction</summary><div><p>When aggressive orders consume resting liquidity, price may move to the next available level. Watch how price responds after liquidity is consumed: continuation, rejection and replenishment tell different stories.</p></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="expert" data-search="market microstructure matching engine queue priority spread adverse selection maker taker">
-      <div class="edu-group-head"><span>09</span><div><small>EXPERT</small><h2>Market Microstructure</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>The matching process</summary><div><p>Electronic markets match compatible orders according to the rules of the venue. Price and time priority are common principles, but the exact mechanism depends on the exchange and product.</p></div></details>
-        <details><summary>Displayed vs executed liquidity</summary><div><p>Displayed depth is a snapshot. Executed volume is evidence of a completed transaction. Keeping these concepts separate prevents you from treating every visible order as equally meaningful.</p></div></details>
-        <details><summary>Queue, spread and execution cost</summary><div><p>Execution quality depends on spread, available depth, queue position, volatility and the behavior of the book while your order is waiting. The same entry price can have very different execution quality under different conditions.</p></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="expert" data-search="absorption exhaustion initiative effort result volume delta footprint">
-      <div class="edu-group-head"><span>10</span><div><small>EXPERT</small><h2>Advanced Order Flow</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>Absorption</summary><div><p>Absorption is a framework for describing aggressive buying or selling that meets sufficient opposing liquidity so price makes limited progress. It is not simply “a big number on the footprint”. Location and subsequent price response matter.</p></div></details>
-        <details><summary>Exhaustion</summary><div><p>Exhaustion describes a reduction in aggressive participation near a move's extreme. It can be relevant when aggressive activity stops producing continuation, but it should be interpreted with structure and context.</p></div></details>
-        <details><summary>Effort vs Result</summary><div><p>This is one of the most useful ways to connect volume and price. <strong>Effort</strong> is the amount of activity or aggression. <strong>Result</strong> is what price actually accomplishes.</p><div class="effort-diagram"><div><span class="effort-number">100</span><small>buyers pushing</small></div><div class="effort-vs">VS</div><div><span class="effort-number">300</span><small>sellers pushing</small></div></div><p>If a very large amount of selling effort produces only a small downward result, something is limiting that pressure. Conversely, strong effort followed by strong displacement suggests that the effort is actually producing movement.</p><p><strong>Question to ask:</strong> “How much effort was required, and what did price achieve with it?”</p></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="expert" data-search="CVD cumulative volume delta divergence confirmation price aggressive volume">
-      <div class="edu-group-head"><span>11</span><div><small>EXPERT</small><h2>CVD & Divergence</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>What is CVD?</summary><div><p>Cumulative Volume Delta accumulates delta through time. In a common implementation, it represents cumulative aggressive buy volume minus aggressive sell volume. Bookmap describes CVD as a way to track the balance between aggressive buyers and sellers over time. Source: Bookmap</p></div></details>
-        <details><summary>Price vs CVD divergence</summary><div><p>A divergence occurs when price and CVD move differently. For example, price can make a new high while CVD fails to make a corresponding high. This can reveal a change in aggressive participation, but it is not a standalone reversal signal.</p></div></details>
-        <details><summary>Use CVD as confirmation</summary><div><p>CVD becomes more useful when combined with structure, liquidity and price response. Bookmap explicitly presents CVD as a confirmation tool rather than something to use alone for entries. Source: Bookmap</p></div></details>
-      </div>
-    </article>
-
-    <article class="edu-group" data-level="expert" data-search="execution process slippage stop order entry exit trade management statistics">
-      <div class="edu-group-head"><span>12</span><div><small>EXPERT</small><h2>Execution & Process</h2></div></div>
-      <div class="edu-lessons">
-        <details><summary>Analysis is not execution</summary><div><p>A good read of the market does not guarantee a good fill. Separate the analytical thesis from the mechanics of entering, managing and exiting the position.</p></div></details>
-        <details><summary>Slippage and market conditions</summary><div><p>Slippage is the difference between an expected execution price and the actual fill. It can increase when volatility rises, liquidity thins or the market moves quickly.</p></div></details>
-        <details><summary>Build evidence, not stories</summary><div><p>After a trade, compare what you expected with what actually happened. Use a large enough sample to distinguish a repeatable characteristic from a memorable single event.</p></div></details>
-      </div>
-    </article>
-  </section>
-
-  <section class="education-principles">
-    <div class="education-kicker">THE SPECTRA APPROACH</div>
-    <h2>Read the layers<br>together.</h2>
-    <div class="principles-grid">
-      <div><span>01</span><b>STRUCTURE</b><p>Where is price, and what has changed?</p></div>
-      <div><span>02</span><b>VOLUME</b><p>Where did participation concentrate?</p></div>
-      <div><span>03</span><b>ORDER FLOW</b><p>Who was aggressive, and where?</p></div>
-      <div><span>04</span><b>LIQUIDITY</b><p>What happened when orders met?</p></div>
-      <div><span>05</span><b>RESULT</b><p>Did the effort actually move price?</p></div>
+  <section class="level-selector" aria-label="Choose trading level">
+    <div class="selector-label">01 / CHOOSE YOUR LEVEL</div>
+    <div class="level-grid">
+      <button class="level-card" type="button" data-level-choice="beginner">
+        <span class="level-number">01</span><span class="level-tag">BEGINNER</span>
+        <strong>Build the foundation</strong><span class="level-desc">Price, markets, risk and process.</span><span class="level-arrow">↗</span>
+      </button>
+      <button class="level-card" type="button" data-level-choice="advanced">
+        <span class="level-number">02</span><span class="level-tag">ADVANCED</span>
+        <strong>Read what is happening</strong><span class="level-desc">Structure, volume, order flow and liquidity.</span><span class="level-arrow">↗</span>
+      </button>
+      <button class="level-card" type="button" data-level-choice="expert">
+        <span class="level-number">03</span><span class="level-tag">EXPERT</span>
+        <strong>Read the mechanics</strong><span class="level-desc">Microstructure, divergence and execution.</span><span class="level-arrow">↗</span>
+      </button>
     </div>
   </section>
 
-  <footer class="education-sources">
-    <div class="education-kicker">REFERENCE MATERIAL</div>
-    <p>This library is educational material, not financial advice. Definitions and calculations can vary by venue, instrument, data feed and platform implementation.</p>
-    <div class="source-links">
-      <a href="https://www.tradingview.com/support/solutions/43000502040-volume-profile-indicators-basic-concepts/" target="_blank" rel="noopener">TradingView · Volume Profile</a>
-      <a href="https://bookmap.com/learning-center/getting-started/subchart-widget-panel/cumulative-volume-delta-cvd" target="_blank" rel="noopener">Bookmap · CVD</a>
+  <section class="education-library" aria-label="Education library">
+    <div class="library-head">
+      <div class="library-context">
+        <button class="selected-level" type="button" aria-label="Change level">
+          <span class="selected-level-index">01</span>
+          <span><small>LEVEL</small><b>BEGINNER</b></span>
+          <span class="selected-level-arrow">⌄</span>
+        </button>
+        <div class="library-title">
+          <span class="library-kicker">02 / CONCEPTS</span>
+          <h2 id="library-title">Build the foundation</h2>
+        </div>
+      </div>
+      <label class="education-search"><span>⌕</span><input id="education-search-input" type="search" placeholder="Search a concept..." autocomplete="off"></label>
     </div>
-  </footer>
+
+    <div class="level-tabs" role="tablist" aria-label="Education level">
+      <button type="button" data-filter="beginner">01 BEGINNER</button>
+      <button type="button" data-filter="advanced">02 ADVANCED</button>
+      <button type="button" data-filter="expert">03 EXPERT</button>
+    </div>
+
+    <div class="education-list" aria-live="polite">
+      <article class="edu-group" data-level="beginner" data-search="trading fundamentals market price order risk" data-number="01">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">01</span>
+          <span class="group-main"><small>BEGINNER</small><strong>Trading Fundamentals</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          
+          <div class="edu-lessons">
+<details><summary>What is a market?</summary><div><p>A market is an auction where participants continuously submit orders to buy and sell. Price changes when available liquidity is consumed or when participants reprice their orders.</p><p><strong>Key idea:</strong> price is the result of transactions and order placement, not an isolated line moving by itself.</p></div></details>
+<details><summary>Bid, ask and spread</summary><div><p>The <strong>bid</strong> is the highest displayed price someone is willing to buy at. The <strong>ask</strong> is the lowest displayed price someone is willing to sell at. The difference is the <strong>spread</strong>.</p><p>Market orders generally execute against available liquidity. Limit orders add or wait for liquidity at a chosen price.</p></div></details>
+<details><summary>Market orders vs limit orders</summary><div><p>A market order prioritizes execution. A limit order prioritizes price. Neither is automatically better: the correct choice depends on the execution problem you are solving.</p><div class="edu-example"><b>Example</b><span>You want to buy immediately → execution certainty matters more.</span><span>You only want to buy at 100.00 or lower → price control matters more.</span></div></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="beginner" data-search="candles price action structure trend support resistance" data-number="02">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">02</span>
+          <span class="group-main"><small>BEGINNER</small><strong>Reading Price</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          
+          <div class="edu-lessons">
+<details><summary>What a candle actually tells you</summary><div><p>Open, high, low and close describe the range and final position of price during a period. A candle is a compressed record of the auction, not a complete explanation of why price moved.</p></div></details>
+<details><summary>Swings and market structure</summary><div><p>Instead of treating every candle as equally important, identify meaningful swing highs and lows. Structure gives context to individual movements and helps distinguish continuation from a change in behavior.</p></div></details>
+<details><summary>Trend, range and transition</summary><div><p>A market can broadly be expanding in one direction, rotating inside a range, or transitioning between the two. The important question is not simply “up or down?” but <strong>what is price doing relative to the structure that came before it?</strong></p></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="beginner" data-search="risk management psychology probability expectancy drawdown" data-number="03">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">03</span>
+          <span class="group-main"><small>BEGINNER</small><strong>Risk & Psychology</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          
+          <div class="edu-lessons">
+<details><summary>Risk comes before the setup</summary><div><p>A trading idea can be correct and still produce a losing trade. Risk management separates the quality of an idea from the size of its consequence.</p><p>Define risk per trade, maximum daily loss and conditions under which you stop trading before entering.</p></div></details>
+<details><summary>Expectancy</summary><div><p>Expectancy describes the average outcome of a strategy over many trades. A simple model is:</p><div class="formula">Expectancy = (Win rate × average win) − (Loss rate × average loss)</div><p>A strategy does not need to win most trades to have positive expectancy if its winners are sufficiently larger than its losers.</p></div></details>
+<details><summary>Drawdown and the losing streak</summary><div><p>Short sequences of losses are normal in probabilistic systems. The goal is to size risk so that an ordinary losing sequence does not force you to abandon the process.</p></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="beginner" data-search="process journal backtest execution discipline trading plan" data-number="04">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">04</span>
+          <span class="group-main"><small>BEGINNER</small><strong>Building a Process</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          
+          <div class="edu-lessons">
+<details><summary>Turn an idea into a rule</summary><div><p>“I buy when the market looks strong” is difficult to test. A process becomes testable when context, setup, trigger, invalidation and exit are defined clearly enough that another person could identify the same trade.</p></div></details>
+<details><summary>Backtesting</summary><div><p>Backtesting asks whether a defined rule set produced a repeatable distribution of outcomes on historical data. Record every qualifying trade, not only the attractive ones.</p></div></details>
+<details><summary>Journal what matters</summary><div><p>Track setup, context, entry, stop, target, result, execution quality and deviations from the plan. The journal should help answer <strong>what is actually happening?</strong>, not simply how you felt about the last trade.</p></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="advanced" data-search="market structure auction acceptance rejection balance imbalance" data-number="05">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">05</span>
+          <span class="group-main"><small>ADVANCED</small><strong>Market Structure</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          
+          <div class="edu-lessons">
+<details><summary>Structure is context</summary><div><p>Market structure organizes price into meaningful swings and areas of acceptance or rejection. A footprint signal without context can mean something very different inside a range than at a structural extreme.</p></div></details>
+<details><summary>Balance and imbalance</summary><div><p><strong>Balance</strong> describes two-sided trade and repeated acceptance around an area. <strong>Imbalance</strong> describes a stronger directional auction where one side controls the progression of price.</p></div></details>
+<details><summary>Acceptance vs rejection</summary><div><p>A quick move through a level is not the same as sustained trade there. Ask whether the market is actually accepting prices beyond a level or rejecting them and returning to the prior area.</p></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="advanced" data-search="volume profile poc vah val value area hvn lvn volume" data-number="06">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">06</span>
+          <span class="group-main"><small>ADVANCED</small><strong>Volume</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          <div class="concept-visual profile-visual"><div class="profile-bars"><i style="width:28%"></i><i style="width:64%"></i><i style="width:42%"></i><i class="poc" style="width:86%"></i><i style="width:54%"></i><i style="width:24%"></i></div><div class="profile-labels"><span>VAH</span><span>POC</span><span>VAL</span></div><small>VOLUME PROFILE · ILLUSTRATIVE</small></div>
+          <div class="edu-lessons">
+<details><summary>Volume: activity, not direction</summary><div><p>Volume tells you how much activity occurred, but volume alone does not tell you who will win next. Its meaning depends on price response, location and context.</p></div></details>
+<details><summary>Volume Profile</summary><div><p>Volume Profile distributes activity across price levels rather than time. Common references include <strong>POC</strong>, the price with the greatest volume in the profile, and <strong>VAH / VAL</strong>, the upper and lower boundaries of the selected value area.</p><div class="edu-example"><b>Example</b><span>A large volume node can show an area where the market previously spent significant activity.</span><span>A low-volume area can represent a thinner part of the distribution where price previously moved through with less activity.</span></div><p>The exact calculation depends on the data and implementation. TradingView notes that its Volume Profile calculations use lower-timeframe data and that volume type differs across instruments. Source: TradingView</p></div></details>
+<details><summary>POC, VAH, VAL, HVN and LVN</summary><div><p>These are references, not automatic trade signals. Their usefulness comes from observing how current price behaves when it interacts with previously active or thin areas.</p></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="advanced" data-search="order flow footprint delta bid ask aggressive buyers sellers transactions" data-number="07">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">07</span>
+          <span class="group-main"><small>ADVANCED</small><strong>Order Flow</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          <div class="concept-visual footprint-visual"><div class="footprint-head"><span>PRICE</span><span>BID × ASK</span></div><div>101.25 <b>18 × 64</b></div><div>101.00 <b>71 × 23</b></div><div>100.75 <b>92 × 19</b></div><small>EXAMPLE FOOTPRINT · ILLUSTRATIVE</small></div>
+          <div class="edu-lessons">
+<details><summary>What order flow adds</summary><div><p>Traditional candles summarize price over time. Order flow can expose the transactions and aggressor-side activity occurring inside that summary, depending on the quality and granularity of the feed.</p></div></details>
+<details><summary>Footprint charts</summary><div><p>A footprint can display traded volume at individual price levels, often separated into bid and ask activity. This makes it possible to study where aggressive buying or selling occurred inside a candle.</p></div></details>
+<details><summary>Delta</summary><div><p>A common order-flow delta is <strong>aggressive buy volume minus aggressive sell volume</strong>. Positive delta means more volume was classified on the buy side; negative delta means more was classified on the sell side.</p><div class="edu-example"><b>Read the combination</b><span>Positive delta + strong upward price response → aggression is producing movement.</span><span>Positive delta + little upward progress → investigate whether that effort is being absorbed.</span></div></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="advanced" data-search="liquidity order book dom resting orders limit order book spoofing depth" data-number="08">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">08</span>
+          <span class="group-main"><small>ADVANCED</small><strong>Liquidity</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          
+          <div class="edu-lessons">
+<details><summary>What liquidity means</summary><div><p>Liquidity is the availability of orders that can be matched with incoming demand or supply. A visible order book shows displayed liquidity, while executed trades show what actually transacted.</p></div></details>
+<details><summary>DOM and market depth</summary><div><p>The DOM can show resting bids and asks around the current market. Depth is useful for understanding the current order-book state, but displayed orders can change or disappear and should not automatically be treated as committed intent.</p></div></details>
+<details><summary>Liquidity interaction</summary><div><p>When aggressive orders consume resting liquidity, price may move to the next available level. Watch how price responds after liquidity is consumed: continuation, rejection and replenishment tell different stories.</p></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="expert" data-search="market microstructure matching engine queue priority spread adverse selection maker taker" data-number="09">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">09</span>
+          <span class="group-main"><small>EXPERT</small><strong>Market Microstructure</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          <div class="concept-visual microstructure-visual"><div class="book-row"><span>ASK</span><i></i><i></i><i class="hot"></i><i></i><span>101.25</span></div><div class="book-row"><span>BID</span><i></i><i class="hot"></i><i></i><i></i><span>101.00</span></div><small>DISPLAYED DEPTH ≠ EXECUTED VOLUME</small></div>
+          <div class="edu-lessons">
+<details><summary>The matching process</summary><div><p>Electronic markets match compatible orders according to the rules of the venue. Price and time priority are common principles, but the exact mechanism depends on the exchange and product.</p></div></details>
+<details><summary>Displayed vs executed liquidity</summary><div><p>Displayed depth is a snapshot. Executed volume is evidence of a completed transaction. Keeping these concepts separate prevents you from treating every visible order as equally meaningful.</p></div></details>
+<details><summary>Queue, spread and execution cost</summary><div><p>Execution quality depends on spread, available depth, queue position, volatility and the behavior of the book while your order is waiting. The same entry price can have very different execution quality under different conditions.</p></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="expert" data-search="absorption exhaustion initiative effort result volume delta footprint" data-number="10">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">10</span>
+          <span class="group-main"><small>EXPERT</small><strong>Advanced Order Flow</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          <div class="concept-visual footprint-visual"><div class="footprint-head"><span>PRICE</span><span>BID × ASK</span></div><div>101.25 <b>18 × 64</b></div><div>101.00 <b>71 × 23</b></div><div>100.75 <b>92 × 19</b></div><small>EXAMPLE FOOTPRINT · ILLUSTRATIVE</small></div>
+          <div class="edu-lessons">
+<details><summary>Absorption</summary><div><p>Absorption is a framework for describing aggressive buying or selling that meets sufficient opposing liquidity so price makes limited progress. It is not simply “a big number on the footprint”. Location and subsequent price response matter.</p></div></details>
+<details><summary>Exhaustion</summary><div><p>Exhaustion describes a reduction in aggressive participation near a move's extreme. It can be relevant when aggressive activity stops producing continuation, but it should be interpreted with structure and context.</p></div></details>
+<details><summary>Effort vs Result</summary><div><p>This is one of the most useful ways to connect volume and price. <strong>Effort</strong> is the amount of activity or aggression. <strong>Result</strong> is what price actually accomplishes.</p><div class="effort-diagram"><div><span class="effort-number">100</span><small>buyers pushing</small></div><div class="effort-vs">VS</div><div><span class="effort-number">300</span><small>sellers pushing</small></div></div><p>If a very large amount of selling effort produces only a small downward result, something is limiting that pressure. Conversely, strong effort followed by strong displacement suggests that the effort is actually producing movement.</p><p><strong>Question to ask:</strong> “How much effort was required, and what did price achieve with it?”</p></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="expert" data-search="CVD cumulative volume delta divergence confirmation price aggressive volume" data-number="11">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">11</span>
+          <span class="group-main"><small>EXPERT</small><strong>CVD & Divergence</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          <div class="concept-visual divergence-visual"><div class="mini-chart"><span class="line price-line"></span><span class="line cvd-line"></span><b>PRICE</b><b>CVD</b></div><small>PRICE CONTINUES · AGGRESSIVE FLOW DOES NOT</small></div>
+          <div class="edu-lessons">
+<details><summary>What is CVD?</summary><div><p>Cumulative Volume Delta accumulates delta through time. In a common implementation, it represents cumulative aggressive buy volume minus aggressive sell volume. Bookmap describes CVD as a way to track the balance between aggressive buyers and sellers over time. Source: Bookmap</p></div></details>
+<details><summary>Price vs CVD divergence</summary><div><p>A divergence occurs when price and CVD move differently. For example, price can make a new high while CVD fails to make a corresponding high. This can reveal a change in aggressive participation, but it is not a standalone reversal signal.</p></div></details>
+<details><summary>Use CVD as confirmation</summary><div><p>CVD becomes more useful when combined with structure, liquidity and price response. Bookmap explicitly presents CVD as a confirmation tool rather than something to use alone for entries. Source: Bookmap</p></div></details>
+</div>
+        </div>
+      </article>
+      <article class="edu-group" data-level="expert" data-search="execution process slippage stop order entry exit trade management statistics" data-number="12">
+        <button class="group-title" type="button" aria-expanded="false">
+          <span class="group-number">12</span>
+          <span class="group-main"><small>EXPERT</small><strong>Execution & Process</strong></span>
+          <span class="group-toggle">+</span>
+        </button>
+        <div class="group-body" hidden>
+          
+          <div class="edu-lessons">
+<details><summary>Analysis is not execution</summary><div><p>A good read of the market does not guarantee a good fill. Separate the analytical thesis from the mechanics of entering, managing and exiting the position.</p></div></details>
+<details><summary>Slippage and market conditions</summary><div><p>Slippage is the difference between an expected execution price and the actual fill. It can increase when volatility rises, liquidity thins or the market moves quickly.</p></div></details>
+<details><summary>Build evidence, not stories</summary><div><p>After a trade, compare what you expected with what actually happened. Use a large enough sample to distinguish a repeatable characteristic from a memorable single event.</p></div></details>
+</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="education-note">
+    <span class="education-kicker">SPECTRA / APPROACH</span>
+    <h2>Learn the concept.<br><span>Then learn to read it in context.</span></h2>
+    <p>These lessons are designed to build a mental model, not give you isolated signals. A concept becomes useful when you understand what it measures, what it does not measure, and how it behaves inside the wider market context.</p>
+  </section>
 </main>
 </body>
 </html>

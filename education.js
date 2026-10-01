@@ -1,117 +1,22 @@
 (() => {
   "use strict";
-
-  const root = document.documentElement;
-  const navActions = document.querySelector(".nav-actions");
-  if (!navActions) return;
-
-  const cssHref = "education.css";
-  if (!document.querySelector(`link[data-spectra-education-css]`)) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = cssHref;
-    link.dataset.spectraEducationCss = "true";
-    document.head.appendChild(link);
+  const navActions=document.querySelector(".nav-actions");
+  if(!navActions)return;
+  if(!document.querySelector('link[data-spectra-education-css]')){const l=document.createElement("link");l.rel="stylesheet";l.href="education.css";l.dataset.spectraEducationCss="true";document.head.appendChild(l)}
+  const trigger=document.createElement("button");trigger.type="button";trigger.className="education-trigger";trigger.textContent="EDUCATION";trigger.setAttribute("aria-haspopup","dialog");trigger.setAttribute("aria-expanded","false");navActions.appendChild(trigger);
+  const overlay=document.createElement("div");overlay.className="education-overlay";overlay.setAttribute("aria-hidden","true");overlay.innerHTML='<section class="education-panel" role="dialog" aria-modal="true" aria-label="SPECTRA Education"><button class="education-close" type="button" aria-label="Close Education"></button><div class="education-content"></div></section>';document.body.appendChild(overlay);
+  const content=overlay.querySelector(".education-content"),close=overlay.querySelector(".education-close");let loaded=false,lastFocus=null;
+  async function load(){if(loaded)return;content.innerHTML='<div style="padding:120px 6vw;color:#657783;font:11px var(--mono)">LOADING EDUCATION...</div>';try{const r=await fetch("education.html",{cache:"no-cache"});if(!r.ok)throw new Error(`HTTP ${r.status}`);const d=new DOMParser().parseFromString(await r.text(),"text/html");content.replaceChildren(...Array.from(d.body.children));loaded=true;wire()}catch(e){content.innerHTML='<div style="padding:120px 6vw;color:#8b98a1;font:12px var(--mono)">EDUCATION COULD NOT BE LOADED.<br><br>Make sure education.html is in the same folder as index.html.</div>';console.error("SPECTRA Education:",e)}}
+  function wire(){
+    const page=content.querySelector(".education-page"),selector=content.querySelector(".level-selector"),library=content.querySelector(".education-library"),cards=[...content.querySelectorAll("[data-level-choice]")],tabs=[...content.querySelectorAll("[data-filter]")],selected=content.querySelector(".selected-level"),groups=[...content.querySelectorAll(".edu-group")],search=content.querySelector("#education-search-input"),levelIndex=content.querySelector(".selected-level-index"),levelName=content.querySelector(".selected-level b"),title=content.querySelector("#library-title");
+    const meta={beginner:["01","BEGINNER","Build the foundation"],advanced:["02","ADVANCED","Read what is happening"],expert:["03","EXPERT","Read the mechanics"]};let active="beginner";
+    function setLevel(level,animate=true){active=level;const [n,name,heading]=meta[level];page.classList.add("level-selected");levelIndex.textContent=n;levelName.textContent=name;title.textContent=heading;tabs.forEach(t=>t.classList.toggle("is-active",t.dataset.filter===level));groups.forEach(g=>{g.classList.toggle("education-hidden",g.dataset.level!==level);g.querySelector(".group-title").setAttribute("aria-expanded","false");g.querySelector(".group-body").hidden=true;g.querySelector(".group-toggle").textContent="+"});if(search)search.value="";if(animate)library.scrollIntoView({behavior:"smooth",block:"start"})}
+    function resetLevel(){page.classList.remove("level-selected");groups.forEach(g=>{g.classList.remove("education-hidden");g.querySelector(".group-title").setAttribute("aria-expanded","false");g.querySelector(".group-body").hidden=true;g.querySelector(".group-toggle").textContent="+"});search.value="";window.setTimeout(()=>selector.querySelector(`[data-level-choice="${active}"]`)?.focus(),120)}
+    cards.forEach(c=>c.addEventListener("click",()=>setLevel(c.dataset.levelChoice)));tabs.forEach(t=>t.addEventListener("click",()=>setLevel(t.dataset.filter)));selected?.addEventListener("click",resetLevel);
+    groups.forEach(g=>{const b=g.querySelector(".group-title"),body=g.querySelector(".group-body"),toggle=g.querySelector(".group-toggle");b.addEventListener("click",()=>{const open=b.getAttribute("aria-expanded")==="true";groups.forEach(o=>{if(o!==g){o.querySelector(".group-title").setAttribute("aria-expanded","false");o.querySelector(".group-body").hidden=true;o.querySelector(".group-toggle").textContent="+"}});b.setAttribute("aria-expanded",String(!open));body.hidden=open;toggle.textContent=open?"+":"−"})});
+    search?.addEventListener("input",()=>{const q=search.value.trim().toLowerCase();groups.forEach(g=>{const match=g.dataset.level===active && (!q || (g.dataset.search+" "+g.textContent).toLowerCase().includes(q));g.classList.toggle("education-hidden",!match)})});
   }
-
-  const trigger = document.createElement("button");
-  trigger.type = "button";
-  trigger.className = "education-trigger";
-  trigger.textContent = "EDUCATION";
-  trigger.setAttribute("aria-haspopup", "dialog");
-  trigger.setAttribute("aria-expanded", "false");
-  navActions.appendChild(trigger);
-
-  const overlay = document.createElement("div");
-  overlay.className = "education-overlay";
-  overlay.setAttribute("aria-hidden", "true");
-  overlay.innerHTML = `
-    <section class="education-panel" role="dialog" aria-modal="true" aria-label="SPECTRA Education">
-      <button class="education-close" type="button" aria-label="Close Education"></button>
-      <div class="education-content"></div>
-    </section>
-  `;
-  document.body.appendChild(overlay);
-
-  const panel = overlay.querySelector(".education-panel");
-  const content = overlay.querySelector(".education-content");
-  const closeButton = overlay.querySelector(".education-close");
-  let loaded = false;
-  let lastFocus = null;
-
-  async function loadEducation() {
-    if (loaded) return;
-    content.innerHTML = '<div style="padding:120px 6vw;color:#657783;font:11px var(--mono)">LOADING EDUCATION...</div>';
-    try {
-      const response = await fetch("education.html", { cache: "no-cache" });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const html = await response.text();
-      const doc = new DOMParser().parseFromString(html, "text/html");
-      content.replaceChildren(...Array.from(doc.body.children));
-      loaded = true;
-      wireEducationInteractions();
-    } catch (error) {
-      content.innerHTML = '<div style="padding:120px 6vw;color:#8b98a1;font:12px var(--mono)">EDUCATION COULD NOT BE LOADED.<br><br>Make sure education.html is in the same folder as index.html.</div>';
-      console.error("SPECTRA Education:", error);
-    }
-  }
-
-  function wireEducationInteractions() {
-    const search = content.querySelector("#education-search-input");
-    const groups = Array.from(content.querySelectorAll(".edu-group"));
-    const filters = Array.from(content.querySelectorAll("[data-filter]"));
-    let activeFilter = "all";
-
-    function updateGroups() {
-      const query = (search?.value || "").trim().toLowerCase();
-      groups.forEach(group => {
-        const levelMatch = activeFilter === "all" || group.dataset.level === activeFilter;
-        const searchMatch = !query || (group.dataset.search || "").toLowerCase().includes(query) || group.textContent.toLowerCase().includes(query);
-        group.classList.toggle("education-hidden", !(levelMatch && searchMatch));
-      });
-    }
-
-    search?.addEventListener("input", updateGroups);
-    filters.forEach(button => button.addEventListener("click", () => {
-      activeFilter = button.dataset.filter || "all";
-      filters.forEach(item => item.classList.toggle("is-active", item === button));
-      updateGroups();
-    }));
-  }
-
-  function openEducation() {
-    lastFocus = document.activeElement;
-    overlay.classList.add("is-open");
-    overlay.setAttribute("aria-hidden", "false");
-    trigger.setAttribute("aria-expanded", "true");
-    document.body.classList.add("education-locked");
-    loadEducation();
-    window.setTimeout(() => closeButton.focus(), 80);
-  }
-
-  function closeEducation() {
-    overlay.classList.remove("is-open");
-    overlay.setAttribute("aria-hidden", "true");
-    trigger.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("education-locked");
-    window.setTimeout(() => lastFocus?.focus?.(), 120);
-  }
-
-  trigger.addEventListener("click", openEducation);
-  closeButton.addEventListener("click", closeEducation);
-  overlay.addEventListener("click", event => {
-    if (event.target === overlay) closeEducation();
-  });
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && overlay.classList.contains("is-open")) closeEducation();
-  });
-
-  // On mobile the existing menu script does not know about dynamically-added links.
-  // Close the menu as soon as Education opens.
-  trigger.addEventListener("click", () => {
-    const menu = document.querySelector(".menu-toggle");
-    const actions = document.querySelector(".nav-actions");
-    menu?.setAttribute("aria-expanded", "false");
-    actions?.classList.remove("mobile-open");
-  });
+  function open(){lastFocus=document.activeElement;overlay.classList.add("is-open");overlay.setAttribute("aria-hidden","false");trigger.setAttribute("aria-expanded","true");document.body.classList.add("education-locked");load();document.querySelector(".menu-toggle")?.setAttribute("aria-expanded","false");document.querySelector(".nav-actions")?.classList.remove("mobile-open");window.setTimeout(()=>close.focus(),100)}
+  function shut(){overlay.classList.remove("is-open");overlay.setAttribute("aria-hidden","true");trigger.setAttribute("aria-expanded","false");document.body.classList.remove("education-locked");window.setTimeout(()=>lastFocus?.focus?.(),150)}
+  trigger.addEventListener("click",open);close.addEventListener("click",shut);overlay.addEventListener("click",e=>{if(e.target===overlay)shut()});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&overlay.classList.contains("is-open"))shut()});
 })();
