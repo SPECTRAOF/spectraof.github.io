@@ -924,3 +924,15 @@ button,input{font:inherit}
 
 /* Final navbar wordmark readability fix only */
 .brand-wordmark{width:150px !important;}
+
+
+.footer-policy-links{display:flex;gap:22px;flex:0 0 auto}
+.footer-policy-links a{color:#7195af;letter-spacing:.14em;transition:color .2s}
+.footer-policy-links a:hover{color:#fff}
+
+@media(max-width:720px){
+  .nav-actions{gap:16px}
+  .nav-actions>a{font-size:9px!important}
+  .footer-policy-links{gap:14px;flex-wrap:wrap}
+  .footer-policy{gap:18px;flex-wrap:wrap}
+}
