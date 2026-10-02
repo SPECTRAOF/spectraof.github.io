@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #05080c;
+  --text: #eef4f8;
+  --muted: #8e9ca8;
+  --line: rgba(255,255,255,.14);
+  --hover: rgba(255,255,255,.055);
+  --accent: #1597ff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  color: var(--text);
+  font-family: "IBM Plex Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bio {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 22px;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 42px;
+}
+
+.actions {
+  width: min(100%, 360px);
+  display: grid;
+  gap: 10px;
+}
+
+.bio-button {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 17px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: transparent;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  transition: background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
+}
+
+.bio-button:hover {
+  background: var(--hover);
+  border-color: rgba(21,151,255,.65);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.bio-button:active { transform: translateY(0); }
+
+.bio-button:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.arrow {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1;
+  transition: color .18s ease, transform .18s ease;
+}
+
+.bio-button:hover .arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 480px) {
+  .bio { padding: 24px 18px; }
+  .logo {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 34px;
+  }
+  .bio-button {
+    height: 52px;
+    font-size: 10px;
+  }
+}
