@@ -2,27 +2,217 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#05080c">
-  <title>SPECTRA</title>
-  <link rel="icon" type="image/png" href="../assets/spectra-logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SPECTRA is an order flow platform built from the ground up. Follow the development and join the waitlist for early access.">
+  <title>SPECTRA OF | From Traders, For Traders.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="bio">
-    <img class="logo" src="../assets/spectra-logo.png" alt="SPECTRA">
-
-    <div class="actions">
-      <a class="bio-button" href="https://spectraof.com/">
-        <span>ENTER SPECTRA</span>
-        <span class="arrow" aria-hidden="true">↗</span>
+  <div class="site">
+    <header class="nav" id="nav">
+      <a class="brand" href="#top" aria-label="SPECTRA home">
+        <img src="assets/spectra-s.png" alt="" class="brand-logo">
+        <img src="assets/spectra-header.png" alt="SPECTRA" class="brand-wordmark">
       </a>
 
-      <a class="bio-button" href="https://discord.gg/e3EaTTtFW2" target="_blank" rel="noopener noreferrer">
-        <span>JOIN THE COMMUNITY</span>
-        <span class="arrow" aria-hidden="true">↗</span>
-      </a>
-    </div>
-  </main>
+      <nav class="nav-actions" aria-label="Primary">
+        <a href="#qa">Q&amp;A</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="status reveal">
+            <span class="status-dot"></span>
+            <span>CURRENTLY IN DEVELOPMENT</span>
+          </div>
+
+          <img src="assets/spectra-s.png" alt="SPECTRA symbol" class="hero-s-image reveal delay-1">
+
+          <img src="assets/spectra-header.png" alt="SPECTRA" class="hero-header-image reveal delay-2">
+
+          <div class="hero-payoff reveal delay-3">FROM TRADERS, FOR TRADERS.</div>
+
+          <p class="hero-description reveal delay-4">
+            An order flow platform, built from the ground up.
+          </p>
+
+          <a class="hero-cta reveal delay-3" href="#waitlist">
+            <span>JOIN THE WAITLIST</span>
+            <span class="cta-arrow">↗</span>
+          </a>
+
+          <div class="hero-scroll reveal delay-4" aria-hidden="true">
+            <span></span>
+            <span>SCROLL TO EXPLORE</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="qa-section" id="qa">
+        <div class="section-container">
+          <div class="section-header reveal">
+            <div>
+              <div class="eyebrow">Q&amp;A</div>
+              <h2>About SPECTRA.</h2>
+            </div>
+          </div>
+
+          <div class="accordion" data-accordion>
+            <!--
+              INSERT YOUR EXISTING Q&A HERE.
+              Do not change the structure. Duplicate .accordion-item as needed.
+
+              Example:
+              <article class="accordion-item">
+                <button class="accordion-trigger" type="button" aria-expanded="false">
+                  <span class="question-number">01</span>
+                  <span class="question-text">YOUR QUESTION</span>
+                  <span class="question-toggle" aria-hidden="true"></span>
+                </button>
+                <div class="accordion-answer" hidden>
+                  <div class="answer-inner">
+                    <p>YOUR ANSWER</p>
+                  </div>
+                </div>
+              </article>
+            -->
+
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">01</span>
+                <span class="question-text">WHAT IS SPECTRA?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <p>SPECTRA is a market analysis platform focused on <strong>order flow, volume and market structure.</strong> Built to help traders see what is actually happening beneath price.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">02</span>
+                <span class="question-text">WHY DID YOU BUILD IT?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <p>SPECTRA was born from a simple problem: I couldn't find an order flow platform that worked the way I wanted it to. So I decided to <strong>build it myself.</strong></p>
+                </div>
+              </div>
+            </article>
+
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">03</span>
+                <span class="question-text">WHAT ARE WE BUILDING?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <ul class="answer-list">
+                    <li>Clean, focused interface</li>
+                    <li>Deep order flow and volume visualization</li>
+                    <li>Highly customizable workspace</li>
+                    <li>Built around real trading workflows</li>
+                    <li>Less noise, more relevant data</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">04</span>
+                <span class="question-text">WHO IS IT FOR?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <p>For traders who want to go beyond price action and explore <strong>volume, order flow, liquidity and market structure</strong> in greater depth.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span class="question-number">05</span>
+                <span class="question-text">IS IT FINISHED?</span>
+                <span class="question-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="accordion-answer" hidden>
+                <div class="answer-inner">
+                  <p>SPECTRA is currently in development. Built in public, one feature at a time. <strong>Follow the build.</strong></p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="waitlist-section" id="waitlist">
+        <div class="waitlist-container">
+          <div class="section-index reveal">02</div>
+          <div class="eyebrow reveal delay-1">EARLY ACCESS</div>
+          <h2 class="reveal delay-2">JOIN THE WAITLIST</h2>
+          <p class="waitlist-copy reveal delay-3">
+            Follow the development of SPECTRA and be notified when early access becomes available.
+          </p>
+
+          <form class="waitlist-form reveal delay-4" id="waitlist-form">
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+            <button type="submit">
+              <span>JOIN THE WAITLIST</span>
+              <span>↗</span>
+            </button>
+          </form>
+
+          <p class="form-note reveal delay-4" id="form-note">
+            Your email will only be used for SPECTRA updates.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <img src="assets/spectra-s.png" alt="" class="brand-logo">
+            <img src="assets/spectra-header.png" alt="SPECTRA" class="brand-wordmark">
+          </a>
+          <p>FROM TRADERS, FOR TRADERS.</p>
+        </div>
+
+        <div class="footer-meta">
+          <span>© 2026 SPECTRA OF</span>
+          <a href="https://spectraof.com">spectraof.com</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>ORDER FLOW PLATFORM · IN DEVELOPMENT</span>
+        <span>SPECTRA OF</span>
+      </div>
+
+      <div class="footer-policy">
+        <span>PRIVACY</span>
+        <p>Any email submitted through the waitlist is used only for SPECTRA updates and early-access communication. Your address is not sold or shared for marketing purposes.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
